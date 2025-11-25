@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 from transformerblock.transformer import Transformer
 from layerNormalization.layernorm import LayerNorm
-from config import GPT_CONFIG_124M
+from config.config import GPT_CONFIG_124M
 
 class Model(nn.Module):
     def __init__(self, cfg):
@@ -30,12 +30,11 @@ class Model(nn.Module):
         logits = self.out_head(x)
         return logits
 
-torch.manual_seed(123)
 model = Model(GPT_CONFIG_124M)
-out = model(batch)
-print("Input batch:\n", batch)
-print("\nOutput shape:", out.shape)
-print(out)
+# out = model(batch)
+# print("Input batch:\n", batch)
+# print("\nOutput shape:", out.shape)
+# print(out)
 
 total_params = sum(p.numel() for p in model.parameters())
 print(f"Total number of parameters: {total_params:,}")
