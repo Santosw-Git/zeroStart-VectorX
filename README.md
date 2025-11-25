@@ -56,7 +56,7 @@ cd zeroStart-VectorX
 ### 3. Train the Model
 
 ```bash
-python train.py --dataset path/to/your/dataset.txt --epochs 10 --batch_size 16
+python train.py 
 ```
 
 * Customize hyperparameters as needed (`learning_rate`, `seq_length`, etc.)
