@@ -1,5 +1,3 @@
-
-````markdown
 # ZeroStart-VectorX
 
 ZeroStart-VectorX is a custom-built transformer-based language model inspired by GPT architectures. Unlike pre-existing GPT models, this model is built completely from scratch with unique modifications to improve text understanding and generation using vectorized embeddings.
@@ -20,10 +18,11 @@ The project demonstrates the full cycle of building a transformer: defining arch
 Follow these steps to set up and run the project locally:
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/Santosw-Git/zeroStart-VectorX.git
 cd zeroStart-VectorX
-````
+
 
 ### 2. Create and Activate a Virtual Environment
 
