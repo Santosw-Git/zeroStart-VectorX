@@ -10,11 +10,11 @@ class GELU(nn.Module):
             (x + 0.044715 * torch.pow(x, 3))
         ))
 
-torch.manual_seed(123)
-gelu = GELU()
-inputs = torch.tensor(
-    [[-1.0, 0.0, 1.0],
-     [0.5, -0.5, 2.0]]
-)   
-outputs = gelu(inputs)
-print("GELU Outputs:\n", outputs)
+# torch.manual_seed(123)
+# gelu = GELU()
+# inputs = torch.tensor(
+#     [[-1.0, 0.0, 1.0],
+#      [0.5, -0.5, 2.0]]
+# )   
+# outputs = gelu(inputs)
+# print("GELU Outputs:\n", outputs)

@@ -22,8 +22,6 @@
 # print("Characters:", total_characters)
 # print("Tokens:", total_tokens)
 # print("Sample tokens:", tokenizer.encode(pdf_text[:100]))
-
-with open("the-verdict.txt", "r",encoding="utf-8") as f:
-  pdf_text = f.read()   
-print("Length of text:", len(pdf_text))
-print("Sample text:\n", pdf_text[:500])
+with open("dataset/the-verdict.txt", "r", encoding="utf-8") as f:
+    text = f.read()
+pdf_text = text

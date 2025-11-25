@@ -34,18 +34,18 @@ def token_ids_to_text(token_ids, tokenizer):
     flat = token_ids.squeeze(0)
     return tokenizer.decode(flat.tolist())
 
-start_context = "Every effort moves you"
-tokenizer = tiktoken.get_encoding("gpt2")
-model = Model(GPT_CONFIG_124M)
-model.eval()
+# start_context = "Every effort moves you"
+# tokenizer = tiktoken.get_encoding("gpt2")
+# model = Model(GPT_CONFIG_124M)
+# model.eval()
 
-token_ids = generatelogits(
-    model=model,
-    idx=text_to_token_ids(start_context, tokenizer),
-    max_new_tokens=10,
-    context_size=GPT_CONFIG_124M["context_length"]
-)
+# token_ids = generatelogits(
+#     model=model,
+#     idx=text_to_token_ids(start_context, tokenizer),
+#     max_new_tokens=10,
+#     context_size=GPT_CONFIG_124M["context_length"]
+# )
 
-print("Output text:\n", token_ids_to_text(token_ids, tokenizer))
+# print("Output text:\n", token_ids_to_text(token_ids, tokenizer))
 
 

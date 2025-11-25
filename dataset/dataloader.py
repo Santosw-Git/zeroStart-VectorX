@@ -70,13 +70,13 @@ val_loader = dataLoader(
     num_workers=0
 )
 
-print("Train loader:")
-for x, y in train_loader:
-    print(x.shape, y.shape)
-print(len(train_loader))
+# print("Train loader:")
+# for x, y in train_loader:
+#     print(x.shape, y.shape)
+# print(len(train_loader))
 
-print("\nValidation loader:")
-for x, y in val_loader:
-    print(x.shape, y.shape)
-print(len(val_loader))
+# print("\nValidation loader:")
+# for x, y in val_loader:
+#     print(x.shape, y.shape)
+# print(len(val_loader))
 

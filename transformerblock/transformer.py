@@ -34,9 +34,9 @@ class Transformer(nn.Module):
 
         return x
 
-torch.manual_seed(123)
-x = torch.rand(2, 4, 768)
-block = Transformer(GPT_CONFIG_124M)
-output = block(x)
-print("Input shape:", x.shape)
-print("Output shape:", output.shape)
+# torch.manual_seed(123)
+# x = torch.rand(2, 4, 768)
+# block = Transformer(GPT_CONFIG_124M)
+# output = block(x)
+# print("Input shape:", x.shape)
+# print("Output shape:", output.shape)

@@ -19,9 +19,9 @@ class FeedForward(nn.Module):
     def forward(self, x):
         return self.layers(x)
 
-print(GPT_CONFIG_124M["emb_dim"])
+# print(GPT_CONFIG_124M["emb_dim"])
 
-ffn = FeedForward(GPT_CONFIG_124M)
-x = torch.rand(2, 3, 768) 
-out = ffn(x)
-print(out.shape)
+# ffn = FeedForward(GPT_CONFIG_124M)
+# x = torch.rand(2, 3, 768) 
+# out = ffn(x)
+# print(out.shape)

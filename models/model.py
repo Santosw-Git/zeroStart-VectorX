@@ -1,12 +1,10 @@
 
-import torch
-import torch.nn as nn
 import sys
 import os
-
-# Add the root folder of your project to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+import torch
+import torch.nn as nn
 from transformerblock.transformer import Transformer
 from layerNormalization.layernorm import LayerNorm
 from config.config import GPT_CONFIG_124M
@@ -31,32 +29,32 @@ class Model(nn.Module):
         tok_embeds = self.tok_emb(in_idx)
         pos_embeds = self.pos_emb(torch.arange(seq_len, device=in_idx.device))
         x = tok_embeds + pos_embeds  
-        print("passed input embedding")
+        # print("passed input embedding")
         x = self.trf_blocks(x)
         x = self.final_norm(x)
         logits = self.out_head(x)
         return logits
     
-print("config:", GPT_CONFIG_124M)
+# print("config:", GPT_CONFIG_124M)
     
-torch.manual_seed(123)
-batch = torch.randint(0, GPT_CONFIG_124M["vocab_size"], (2, 10))
+# torch.manual_seed(123)
+# batch = torch.randint(0, GPT_CONFIG_124M["vocab_size"], (2, 10))
 
-model = Model(GPT_CONFIG_124M)
-out = model(batch)
-print("Input batch:\n", batch)
-print("\nOutput shape:", out.shape)
-print(out)
+# model = Model(GPT_CONFIG_124M)
+# out = model(batch)
+# print("Input batch:\n", batch)
+# print("\nOutput shape:", out.shape)
+# print(out)
 
-total_params = sum(p.numel() for p in model.parameters())
-print(f"Total number of parameters: {total_params:,}")
+# total_params = sum(p.numel() for p in model.parameters())
+# print(f"Total number of parameters: {total_params:,}")
 
-print("Token embedding layer shape:", model.tok_emb.weight.shape)
-print("Output layer shape:", model.out_head.weight.shape)
+# print("Token embedding layer shape:", model.tok_emb.weight.shape)
+# print("Output layer shape:", model.out_head.weight.shape)
 
-total_params_gpt2 = total_params - sum(p.numel() for p in model.out_head.parameters())
-print(f"Number of trainable parameters considering weight tying: {total_params_gpt2:,}")
+# total_params_gpt2 = total_params - sum(p.numel() for p in model.out_head.parameters())
+# print(f"Number of trainable parameters considering weight tying: {total_params_gpt2:,}")
 
-total_size_bytes = total_params * 4 
-total_size_mb = total_size_bytes / (1024 * 1024)
-print(f"Total size of the model: {total_size_mb:.2f} MB")
+# total_size_bytes = total_params * 4 
+# total_size_mb = total_size_bytes / (1024 * 1024)
+# print(f"Total size of the model: {total_size_mb:.2f} MB")

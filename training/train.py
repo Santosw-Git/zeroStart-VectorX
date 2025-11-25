@@ -1,4 +1,8 @@
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import torch
 from models.model import Model
 from dataset.dataloader import train_loader, val_loader
@@ -93,7 +97,9 @@ model = Model(GPT_CONFIG_124M)
 model.to(device)
 optimizer = torch.optim.AdamW(model.parameters(), lr=0.0004, weight_decay=0.1)
 
-num_epochs = 2
+num_epochs = 50
+print("train loader length:", len(train_loader))
+print("Starting training...")
 train_losses, val_losses, tokens_seen = train_model(
     model, train_loader, val_loader, optimizer, device,
     num_epochs=num_epochs, eval_freq=5, eval_iter=5,

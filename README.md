@@ -1,99 +1,93 @@
-# zeroStart-VectorX
+
 ````markdown
-# My Own LLM Model
+# ZeroStart-VectorX
 
-[![Python](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/) 
-[![PyTorch](https://img.shields.io/badge/PyTorch-1.14-orange)](https://pytorch.org/) 
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+ZeroStart-VectorX is a custom-built transformer-based language model inspired by GPT architectures. Unlike pre-existing GPT models, this model is built completely from scratch with unique modifications to improve text understanding and generation using vectorized embeddings.
 
----
+## Overview
 
-This is the **LLM (Large Language Model)** which I built from scratch so that I can name it and fully customize it according to my needs. It is designed for **text generation** and **next-word prediction tasks**, trained on custom datasets. The main goal of this project is to **understand and experiment with transformer-based models** while creating a fully functional model coded entirely by me.
+This project implements a language model with the following components:
 
----
+- **Custom Transformer Blocks** – built from scratch to handle multi-head attention, feedforward layers, and normalization.
+- **Vectorized Embeddings** – token and positional embeddings for efficient context representation.
+- **Custom Training Pipeline** – PyTorch-based training using a custom dataloader for text data.
+- **Next-Word Prediction** – generates text predictions based on given context.
 
-## Features
+The project demonstrates the full cycle of building a transformer: defining architecture, tokenization, batching, training, and generating text outputs.
 
-- Fully implemented transformer-based architecture from scratch
-- Next-word prediction and text generation
-- Can be trained on any custom text dataset
-- Supports tokenization with `tiktoken` or custom tokenizers
-- Lightweight and flexible for experimentation
-- Designed for learning and research purposes
+## Getting Started
 
----
-
-## Requirements
-
-- Python 3.10+
-- PyTorch
-- `tiktoken` (for tokenization)
-- NumPy
-- Pandas (optional, for CSV/text datasets)
-- tqdm (for progress bars)
-
-Install dependencies with:
-
-```bash
-pip install torch numpy pandas tqdm tiktoken
-````
-
----
-
-## Usage
+Follow these steps to set up and run the project locally:
 
 ### 1. Clone the Repository
-
 ```bash
 git clone https://github.com/Santosw-Git/zeroStart-VectorX.git
 cd zeroStart-VectorX
-```
+````
 
-### 2. Prepare Your Dataset
-
-* Can be plain text (`.txt`) or CSV
-
-### 3. Train the Model
+### 2. Create and Activate a Virtual Environment
 
 ```bash
-python train.py 
+python3 -m venv venv
+source venv/bin/activate   # On Linux/Mac
+venv\Scripts\activate      # On Windows
 ```
 
-* Customize hyperparameters as needed (`learning_rate`, `seq_length`, etc.)
-* Training progress is shown via `tqdm` progress bars
+### 3. Install Dependencies
 
-
-**Example Output:**
-
-```
-Prompt: Once upon a time
-Generated: Once upon a time, there was a kingdom full of wonders where magic and science coexisted peacefully...
+```bash
+pip install -r requirements.txt
 ```
 
----
+### 4. Run Training
 
+```bash
+python3 -m training.train
+```
 
+This will start the training process, print model statistics, and show intermediate outputs for text generation.
 
-## Model Information
+### 5. Training on Your Own Dataset
 
-* Built completely from scratch
-* Transformer-based architecture
-* Next-word prediction capable
-* Lightweight, suitable for experimentation and small datasets
-* Can be extended for fine-tuning on larger datasets
+If you want to train ZeroStart-VectorX on your own dataset:
 
----
+1. Add your dataset in `dataset/data.py`.
+2. Ensure the data is properly formatted (e.g., text files or preprocessed token sequences).
+3. Modify or create a new dataloader in `dataset/dataloader.py` to load your data.
+4. Run training using the same command:
 
-## License
+```bash
+python3 -m training.train
+```
 
-This project is **open-source** and free to use for **learning, research, and experimentation purposes**.
+This will use your custom dataset for training.
 
----
+## Sample Output
 
-## Notes
+Example of generated text after training:
 
-* This is **not intended for production-level deployment**.
-* Designed for educational purposes and to deepen understanding of LLMs.
-* Can be customized, renamed, and extended as per your research needs.
+```
+I HAD always thought Jack Gisburn rather a peculiar fellow, but as I observed his movements...
+```
 
----
+## Contributing
+
+I welcome contributions to this project! Here’s how you can help:
+
+1. **Fork the Repository**
+2. **Create a Feature Branch**
+
+```bash
+git checkout -b feature-name
+```
+
+3. **Make Your Changes**
+4. **Commit and Push**
+
+```bash
+git commit -m "Description of changes"
+git push origin feature-name
+```
+
+5. **Open a Pull Request** – Your contributions will be reviewed and merged after verification.
+
