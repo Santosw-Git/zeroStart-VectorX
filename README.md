@@ -13,9 +13,8 @@ This project implements a language model with the following components:
 
 The project demonstrates the full cycle of building a transformer: defining architecture, tokenization, batching, training, and generating text outputs.
 
-## Getting Started
 
-Follow these steps to set up and run the project locally:
+### Follow these steps to set up and run the project locally:
 
 ### 1. Clone the Repository
 
