@@ -1,7 +1,12 @@
+
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import torch    
 import torch.nn as nn
 from layerNormalization.geluactivation import GELU
-from config import GPT_CONFIG_124M
+from config.config import GPT_CONFIG_124M
 class FeedForward(nn.Module):
     def __init__(self, cfg):
         super().__init__()

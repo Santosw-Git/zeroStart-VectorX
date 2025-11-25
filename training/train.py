@@ -29,13 +29,8 @@ def calc_loss_loader(data_loader, model, device, num_batches=None):
     return total_loss / num_batches
 
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-tokenizer = tiktoken.get_encoding("gpt2")
-model = Model(GPT_CONFIG_124M)
 
-model.to(device)
-
-def train_model_simple(model, train_loader, val_loader, optimizer, device, num_epochs,
+def train_model(model, train_loader, val_loader, optimizer, device, num_epochs,
                        eval_freq, eval_iter, start_context, tokenizer):
     train_losses, val_losses, track_tokens_seen = [], [], []
     tokens_seen, global_step = 0, -1
@@ -88,17 +83,18 @@ def generate_and_print_sample(model, tokenizer, device, start_context):
     model.train()
 
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+tokenizer = tiktoken.get_encoding("gpt2")
 
 import time
 start_time = time.time()
 
-torch.manual_seed(123)
 model = Model(GPT_CONFIG_124M)
 model.to(device)
 optimizer = torch.optim.AdamW(model.parameters(), lr=0.0004, weight_decay=0.1)
 
 num_epochs = 2
-train_losses, val_losses, tokens_seen = train_model_simple(
+train_losses, val_losses, tokens_seen = train_model(
     model, train_loader, val_loader, optimizer, device,
     num_epochs=num_epochs, eval_freq=5, eval_iter=5,
     start_context="I HAD always thought Jack Gisburn rather a  ", tokenizer=tokenizer

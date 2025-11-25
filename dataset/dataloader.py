@@ -1,3 +1,8 @@
+
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from torch.utils.data import Dataset, DataLoader
 import tiktoken
 import torch
@@ -45,8 +50,6 @@ train_data = text[:split_idx]
 val_data = text[split_idx:]
 
 
-torch.manual_seed(123)
-
 train_loader = dataLoader(
     train_data,
     batch_size=2,
@@ -68,12 +71,12 @@ val_loader = dataLoader(
 )
 
 print("Train loader:")
-
 for x, y in train_loader:
     print(x.shape, y.shape)
+print(len(train_loader))
 
 print("\nValidation loader:")
 for x, y in val_loader:
     print(x.shape, y.shape)
 print(len(val_loader))
-print(len(train_loader))
+
