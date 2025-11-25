@@ -1,4 +1,5 @@
 import PyPDF2
+import tiktoken
 
 def load_pdf(path):
     text = ""
@@ -12,6 +13,8 @@ pdf_text = load_pdf("/content/harrypotter.pdf")
 
 print(len(pdf_text))
 print(pdf_text[:500])
+
+tokenizer = tiktoken.get_encoding("gpt2")
 
 total_characters = len(pdf_text)
 total_tokens = len(tokenizer.encode(pdf_text))

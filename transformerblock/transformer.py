@@ -3,7 +3,7 @@ import torch.nn as nn
 from attention_mechanism.multiheadattention import MultiHeadAttention
 from feedForward.feedfor import FeedForward
 from layerNormalization.layernorm import LayerNorm
-from config import GPT_CONFIG_124M
+from config.config import GPT_CONFIG_124M
 class Transformer(nn.Module):
     def __init__(self, cfg):
         super().__init__()

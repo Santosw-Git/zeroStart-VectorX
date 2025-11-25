@@ -1,7 +1,8 @@
 
 import torch    
-import torch.nn as nn
-from config import GPT_CONFIG_124M
+from config.config import GPT_CONFIG_124M
+import tiktoken
+from models.model import Model
 def generatelogits(model, idx, max_new_tokens, context_size):
     for _ in range(max_new_tokens):
         idx_cond = idx[:, -context_size:]
@@ -18,6 +19,8 @@ def generatelogits(model, idx, max_new_tokens, context_size):
 
     return idx
 
+tokenizer = tiktoken.get_encoding("gpt2")
+
 def text_to_token_ids(text, tokenizer):
     encoded = tokenizer.encode(text, allowed_special={'<|endoftext|>'})
     encoded_tensor = torch.tensor(encoded).unsqueeze(0) 
@@ -29,6 +32,8 @@ def token_ids_to_text(token_ids, tokenizer):
 
 start_context = "Every effort moves you"
 tokenizer = tiktoken.get_encoding("gpt2")
+model = Model(GPT_CONFIG_124M)
+model.eval()
 
 token_ids = generatelogits(
     model=model,

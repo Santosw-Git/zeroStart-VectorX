@@ -1,7 +1,7 @@
 from torch.utils.data import Dataset, DataLoader
 import tiktoken
 import torch
-from config import GPT_CONFIG_124M
+from config.config import GPT_CONFIG_124M
 from dataset.data import pdf_text as text
 
 class DatasetBatch(Dataset):
