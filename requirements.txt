@@ -1,4 +1,7 @@
 torch
 tiktoken
 numpy
+pandas
+tqdm
 typing_extensions
+PyPDF2
