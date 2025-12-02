@@ -6,7 +6,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from torch.utils.data import Dataset, DataLoader
 import tiktoken
 import torch
-from config.config import GPT_CONFIG_124M
+from config.config import CONFIG_124M
 from dataset.data import pdf_text as text
 
 class DatasetBatch(Dataset):
@@ -53,8 +53,8 @@ val_data = text[split_idx:]
 train_loader = dataLoader(
     train_data,
     batch_size=2,
-    context_length=GPT_CONFIG_124M["context_length"],
-    stride=GPT_CONFIG_124M["context_length"],
+    context_length=CONFIG_124M["context_length"],
+    stride=CONFIG_124M["context_length"],
     drop_last=True,
     shuffle=True,
     num_workers=0
@@ -63,8 +63,8 @@ train_loader = dataLoader(
 val_loader = dataLoader(
     val_data,
     batch_size=2,
-    context_length=GPT_CONFIG_124M["context_length"],
-    stride=GPT_CONFIG_124M["context_length"],
+    context_length=CONFIG_124M["context_length"],
+    stride=CONFIG_124M["context_length"],
     drop_last=False,
     shuffle=False,
     num_workers=0

@@ -3,7 +3,7 @@ import torch.nn as nn
 from attention_mechanism.multiheadattention import MultiHeadAttention
 from feedForward.feedfor import FeedForward
 from layerNormalization.layernorm import LayerNorm
-from config.config import GPT_CONFIG_124M
+from config.config import CONFIG_124M
 class Transformer(nn.Module):
     def __init__(self, cfg):
         super().__init__()
@@ -36,7 +36,7 @@ class Transformer(nn.Module):
 
 # torch.manual_seed(123)
 # x = torch.rand(2, 4, 768)
-# block = Transformer(GPT_CONFIG_124M)
+# block = Transformer(CONFIG_124M)
 # output = block(x)
 # print("Input shape:", x.shape)
 # print("Output shape:", output.shape)

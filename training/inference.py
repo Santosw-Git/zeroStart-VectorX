@@ -1,6 +1,6 @@
 from models.model import Model
 from logits.logits import text_to_token_ids, token_ids_to_text
-from config.config import GPT_CONFIG_124M
+from config.config import CONFIG_124M
 import tiktoken
 import torch
 
@@ -35,7 +35,7 @@ def generateinference(model, idx, max_new_tokens, context_size, temperature=0.0,
 
     return idx
 
-model = Model(GPT_CONFIG_124M)
+model = Model(CONFIG_124M)
 tokenizer = tiktoken.get_encoding("gpt2")
 torch.manual_seed(123)
 
@@ -43,7 +43,7 @@ token_ids = generateinference(
     model=model,
     idx=text_to_token_ids("I HAD always thought Jack Gisburn rather a ", tokenizer),
     max_new_tokens=15,
-    context_size=GPT_CONFIG_124M["context_length"],
+    context_size=CONFIG_124M["context_length"],
     top_k=25,
     temperature=1.4
 )

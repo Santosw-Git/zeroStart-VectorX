@@ -7,7 +7,7 @@ import torch
 from models.model import Model
 from dataset.dataloader import train_loader, val_loader
 from logits.logits import generatelogits, text_to_token_ids, token_ids_to_text
-from config.config import GPT_CONFIG_124M
+from config.config import CONFIG_124M
 import tiktoken
 def calc_loss_batch(input_batch, target_batch, model, device):
     input_batch, target_batch = input_batch.to(device), target_batch.to(device)
@@ -95,7 +95,7 @@ tokenizer = tiktoken.get_encoding("gpt2")
 import time
 start_time = time.time()
 
-model = Model(GPT_CONFIG_124M)
+model = Model(CONFIG_124M)
 model.to(device)
 optimizer = torch.optim.AdamW(model.parameters(), lr=0.0004, weight_decay=0.1)
 
