@@ -3,8 +3,9 @@ from logits.logits import text_to_token_ids, token_ids_to_text
 from config.config import GPT_CONFIG_124M
 import tiktoken
 import torch
-# inference test
 
+
+# inference test
 def generateinference(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=None, eos_id=None):
     device = next(model.parameters()).device
     idx = idx.to(device)
