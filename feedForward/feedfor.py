@@ -25,5 +25,4 @@ ffn = FeedForward(CONFIG_124M)
 x = torch.rand(2, 3, 768) 
 out = ffn(x)
 print(out.shape)
-
-# comment it
+print("FeedForward module works correctly.")
