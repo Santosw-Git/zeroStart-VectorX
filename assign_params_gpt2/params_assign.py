@@ -74,8 +74,7 @@ with torch.no_grad():
     model=model,
     idx=input_ids,
     max_new_tokens=15,
-    context_size=CONFIG_124
-    ["context_length"],
+    context_size=CONFIG_124M["context_length"],
     top_k=25,
     temperature=1.4
 )
